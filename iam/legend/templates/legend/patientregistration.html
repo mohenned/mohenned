@@ -1,0 +1,62 @@
+{% extends "legend/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+
+  html,body{
+    background-image: url("{% static 'images/road.jpeg' %}");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+</style>
+<body>
+<p></p>
+<div style="width:90%" class="card text-white bg-dark mb-3 " >
+  <div class="card-header  "> <h1 style ="font-family: 'Aref Ruqaa', serif;">Register here,please:</h1></div>
+        <div class="card-body">
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+            {{ user_form|bootstrap }}
+            {{ profile_form|bootstrap }}
+            <p>Registering indicates that you have read and agreed to the terms and conditions at
+              <a  href="{% url 'legend:thankyou' %}">Thank you</a><span style="color:white;"> / </span><a href="{% url 'legend:about' %}" >About</a> </p>
+          <input type="submit" class="btn btn-primary" name="" value="Register">
+        </form>
+  </div>
+  </div>
+  </body>
+
+  {% elif LANGUAGE_CODE == 'ar' %}
+  <style >
+    html,body,h1,h2,h3,h4,h5,h6,div ,p{direction: rtl;align-items:right;}
+    html,body{
+      background-image: url("{% static 'images/road.jpeg' %}");
+      min-height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
+  <body>
+  <p></p>
+  <div style="width:90%" class="card text-white bg-dark mb-3 text-right" >
+    <div class="card-header  "> <h1 style ="font-family: 'Aref Ruqaa', serif;">سجل معلوماتك هنا</h1></div>
+          <div class="card-body">
+          <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+              {{ user_form|bootstrap }}
+              {{ profile_form|bootstrap }}
+              <p>تسجيل الدخول دليل على أنك قرأت ووافقت على الشروط والقواعد الموجودة في:
+                <a  href="{% url 'legend:thankyou' %}">شكرا</a><span style="color:white;"> / </span><a href="{% url 'legend:about' %}" >عن</a> </p>
+            <input type="submit" class="btn btn-primary" name="" value="تسجيل">
+          </form>
+    </div>
+    </div>
+    </body>
+  {% endif %}
+{% endblock %}

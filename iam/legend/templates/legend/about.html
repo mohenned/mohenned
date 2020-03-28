@@ -1,0 +1,130 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+
+
+<body>
+  <p></p>
+
+  <div class="container ">
+    <div class="row  justify-content-center align-items-center">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;"><h1>
+          Read
+        </h1>
+
+      </div>
+        <div class="card-body">
+          <div class="card-text">
+          <h3 style ="font-family: 'Aref Ruqaa', serif;" >
+            At the gates of heaven and hell sat God with all his might ,and stood I with all my humbelness, between us ,angels
+lined the closest to him were his archangels and the first question in my judgement was about me but not to me  .it was to Azrael.
+ angel of death,said God , what was he doing when you took him ?
+I looked at the score boared ahead with the best actions to die doing. I thought that praying was the best , but higher, much much higher that
+I almost didnt notice  without its shinny golden letters was the best act so beautifully written and so general . it was helping others.
+long story short our health care system sucks ,not the fault of a single person to be honest , and we should make it better.
+thank you
+          </h3>
+        </div>
+        </div>
+        <div class="card-footer overflow-auto" ><h3 style ="font-family: 'Aref Ruqaa', serif;max-height:700px">
+
+
+          Every restriction written in any of the mentioned website apply in its lawful extent to this website and i am not responsible for
+          anything hrmful or bad that might result from you using this website that is you are an adult entering on your own responsibility ,i would
+          really appreciate if you tell me about any issue ,though and thank you.and it is forbidden to use the program outside the website
+          as the main idea is a unified data base .
+        </h3>
+          </div>
+
+        </div>
+        </div>
+    <br>
+            </div>
+
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+
+        <body>
+          <p></p>
+
+          <div class="container ">
+            <div class="row  justify-content-center align-items-center">
+
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">
+                  الكلام أدناه لايعني انتقاص الجهود المبذولة من قبل وزارة الصحة العراقية وآلاف الجنود
+                  الابطال الي يقانلون بيهه .طبعا أقصد الموظفين ولا اقصد من كان او يكون مسؤول عن خرابها
+                  وفسادها مع احترامي لمناصبهم الموْقتة واحتفاري لأفعالهم. وإنما أقصد كيان وزارة الصحة
+                  في الجمهورية العراقية واقصد العراق .
+                </h1>
+
+              </div>
+                <div class="card-body ">
+                  <div class="card-text">
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">
+                      س والله هوسه . كطبيب من تجي بواحد من التوزيعات يكلك الموزع ادري مراح تاخذون التردوه بس شأسوي اذا الاحتياج منكم 4000 وانتو 900 (طبعا الاحتياج اصلا اقل من الحاجة الفعلية )
+  من ذوله ال900 فد 200 يشردون بره العراق و200 يبدلون بواسطة او يخلوهم مكان مريح بواسطة ال500 الباقين تشوفهم ويه باقي المراحل الطبية والصحية بصورة عامة بس تعبانين ويركضون وكلشي ماكو لو يركضون لمريض
+  لو شاردين من اهله او ميليشيا او سياسي ميسواله فلس يكدر ينقلك وره الشمس اذا راد والمشكلة انت من محبوس بإنذا فد 10 أيام  ما شايف اهلك وراجع للدار بنص الليل ميت من التعب
+   تفتح الفيس فلان طبيب باسطيه  والناس نازله سب وشتايم بييك اي وطنية تبقه عندك ؟ تجي للجهه الثانية حاول تجي لمستشفى كمريض لو تروح لحرب هم ارحم هم تشوف نفس الهوسه وقطاعنه الخاص
+  هم صار مقياس الزين بيه هوه الكشفية وانه ينزل على (وسائل التواصل الاجتماعي ) كاتب في سبيل القضية الفلانية ايا كانت القضية بوقتهه والعلم ونظام التقييم العالمي كله بفلسين . المراكز الصحية نفس الشي
+  داومت بمركز صحي المفروض العدد العلمي بيه للأطباء 7 .احسن عدد وصلنه إله 3 أطباء وطبعا المفروض ويه كل مريض تقضي عالاقل 5 دقايق (الي علميا كلش مو كافية ) بس يبقه نحسب عله 5 دقايق
+  اذا الدوام نفرض من 8ونص لل2 ونص  ونفرض آنه مكينة مو إنسان ونفرض المرضى بادين من الصبح وانه باقي الاقسام بالمركز من لقاح وغيره واكدر اشتغل 6 ساعات بنفس المستوى المفروض اكثر عدد اكدر أشوفه 72 واحد
+  متاخذ اي وقت ويرجع اي تحليل اكو قدرة او كيان يشوفله النتيجة وماكو مريض يرجع مرة ثانية يراويني العلاج او اي شي ثاني بالفروض المتقدمة كلهه اقصى عدد للمرضى اكدر أشوفه باليوم 72 مريض ,
+  رقمي القياسي الشخصي 200 شخص (كارتات سويت فمحسوبين عالاقل 200) تجي لتوفر اللأدوية ممنوع تكتب دوة من بره والدوة ما موجود شلون تحلهه ما أدري طبعا ما أحجي عن مضاد حيوي قد يكون أفضل من الناحية العلمية
+  أحجي عن جهاز إعطاء بالطواريء الجراحية مثلا (اكو فترات حته هذه ماعدنه ) يعني اليجي حادث اشربه المغذي لو أخليه يموت واليجي يفتش أهم شي سمعة الدولة ميصير تكتب من بره . طبعا بهالموضوع ما ألوم الي يجهزون
+  مستحيل يكدر يحسب شنو تحتاج لنفس السبب الهوسه . طبعا هاي بالاحوال الاعتيادية غير الزيارات والمظاهرات والكوارث تتضاعف المشاكل والعركات. شلون نحل هالمشكلة .....ما أدري .
+  الي متأكد منه بعد الدوام بالصحة انه الموجودين مراح يحلوهه وانه احنه مو جاي نمشي لكدام وإنما نركض لوره والدليل قارن دخولك لمستشفى هسه وقبل شكم سنه لو نفس الخرط لو أتعس وبرأي ميصير
+  أي حل إذا منحدد حجم المشكلة نحتاج قاعدة بيانات عدلة اولا ثم بعد ذلك ممكن أما واحد ميعجبه الحجي الفوك ويكرفني او ممكن الوضع ميسمح بأي شي نسويه او ممكن يخربط البرنامج أو اكو احتمال انه ندخل لعالم
+  ما محدود من الإحتمالات عالم بيه كل دلائل العمل الطبي ممكن تتطبق اوتوماتيكيا على معلوماتك المدخلة وتحولك في الوقت المناسب إلى الطبيب او المكان المناسب , أتمنه هالإحتمال ينتصر وأنه هالبرنامج يكون
+  باب لعالم يحكمه العلم .
+                    </h3>
+                    <h3>
+مهند  .
+                    </h3>
+                    <p>25-3-2020</p>
+
+                </div>
+                </div>
+                <div class="card-footer" ><h1 style ="font-family: 'Aref Ruqaa', serif;">بعض الملاحظات المهمة:</h1>
+                <div class="card-text">
+                  <h2>--تنطبق كافة الشروط والأحكام المبني عليهه الموقع -المواقع المذكورة بالشكر -على هذا الموقع ضمن نطاقها المذكور في الحقوق الخاصة بكل منها </h2>
+                  <h2> -اخلي نفسي من اي مسؤلية قانونية أو دينية أو عشآئرية ناتجة عن إستخدامك للموقع يعني انت شخص عاقل بالغ مسؤول عن تصرفاتك بداخل او اي نتيجة تنتج عن إستخدامك للموقع</h2>
+                  <h2>-أتمنه إذا اكو أي مشكلة تنطوني خبر وشكرا</h2>
+                  <h2>يمنع إستخدام البرنامج خارج نطاق الموقع -الفكرة قاعدة بيانات موحدة</h2>
+
+                  </div>
+              </div>
+                </div>
+                </div>
+            <br>
+                    </div>
+        </body>
+{% endif %}
+{% endblock %}

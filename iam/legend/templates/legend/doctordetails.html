@@ -1,0 +1,115 @@
+{% extends "legend/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;}
+</style>
+<head>
+    <div class="header  text-white  " style="width:100%;padding:5px;margin:5px;">
+    <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Hello, {{user.doctor.name}} </h2>
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Good ,every time, to you</h3>
+  </div>
+</head>
+<body >
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-black w3-card-4">
+        <div class="w3-display-container">
+          {% if user.doctor.profile_pic %}
+          <img src="{{user.doctor.profile_pic.url}}" style="width:100%" alt="Avatar">
+          {% else %}
+          <img src="media/images/pencil.jpg" style="width:100%" alt="Avatar">
+          {% endif %}
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;" >{{user.doctor.name}}</h2>
+          </div>
+        </div>
+
+
+<div class="w3-container">
+  <p></p>
+    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.speciality}}</p>
+    <p><i class="fa fa-mortar-board fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.Degree}}</p>
+    <p><i class="fa fa-male fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.Gender}}</p>
+    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.Date_of_birth}}</p>
+    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.adress}}</p>
+    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.email}}</p>
+    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.doctor.phone_number}}</p>
+    <hr>
+    <a style="color:#006652;" class="w3-button w3-black" href="{% url 'legend:doctor_update' user.pk %}" >Edit Profile</a>
+
+    <p></p>
+  </div>
+</div>
+        <br>
+      </div>
+    <br>
+
+<!-- right column -->
+    <div class="w3-twothird">
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-black w3-padding-16" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>About Me</h2>
+        <div class="w3-container overflow-auto" style="max-height:200px" >
+          <h5 >{{user.doctor.Other_notes_about_your_self}}</h5>
+          <p></p>
+          </div>
+          <p></p>
+          </div>
+
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-black w3-padding-16" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>some links</h2>
+            <div class="w3-container">
+              <h5 ><b><a href="{% url 'legend:doctor_patients' %} " class="btn btn-outline-success" >Patients</a></b></h5>
+              <h5 ><b><a href="{% url 'legend:Visit_create' %} " class="btn btn-success" >Create Visit</a></b></h5>
+
+              <hr>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            {% elif LANGUAGE_CODE == 'ar' %}
+            <style >
+              html,body,h1,h2,h3,h4,h5,h6,div ,p{direction: rtl;align-items:right;}
+              html,body{
+              background-image: url("{% static 'images/road.jpeg' %}");
+              min-height: 100%;
+              background-position: center;
+              background-size: cover;}
+            </style>
+            <body>
+            <p></p>
+            <div style="width:90%" class="card text-white bg-dark mb-3 text-right" >
+              <div class="card-header  "> <h1 style ="font-family: 'Aref Ruqaa', serif;">لزيادة الحماية:</h1></div>
+                    <div class="card-body">
+                    <h3>خيارات الطبيب متاحة باللغة الانكليزية فقط</h3>
+                    <h3>غير إعدادات اللغة الى الإنكليزية إسفل صفحة الموقع </h3>
+                    <h3>جوه عاليمنه حول عالانكليزي ودوس اوكي وارجع هنا </h3>
+              </div>
+              </div>
+            </body>
+            {% endif %}
+{% endblock %}

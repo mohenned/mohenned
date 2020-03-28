@@ -1,0 +1,99 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header bg-info text-white " style="width:100%;padding:5px;margin:5px;">
+    <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;"> These are {{patient_list}} Investigation(s): </h2>
+
+  </div>
+</head>
+
+<body>
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="row">
+    <p></p>
+    <!-- Left Column -->
+    <div class="col-sm-6">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Added by {{patient_list}}:</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:700px">
+            <table class="table">
+            <tbody>
+              {% for investigation in myinvestigations_list %}
+              <tr>
+                <td>{{investigation.time}}</td>
+                <td>{{investigation.name}}</td>
+                <td>{{investigation.Value}}</td>
+                <td style="max-width: 150px;word-wrap: break-word;">{{investigation.investigations_comments}}</td>
+              </tr>
+              </tbody>
+
+            {% empty %}
+                <h3 style ="font-family: 'Aref Ruqaa', serif;">No Investigations To show .</h3>
+            {% endfor %}
+            </table>
+        </div>
+        </div>
+
+
+        </div>
+        </div>
+
+
+
+
+    <br>
+
+<!-- right column -->
+    <div class="col-sm-6">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Measured in a visit:</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:700px">
+            <table class="table">
+            <tbody>
+            {% for visit in patient_list.visit_set.all %}
+            {% for investigation in visit.investigations_set.all %}
+            <tr>
+              <td>{{investigation.time}}</td>
+              <td>{{investigation.name}}</td>
+              <td>{{investigation.Value}}</td>
+              <td style="max-width: 150px;word-wrap: break-word;">{{investigation.investigations_comments}}</td>
+            {% endfor %}
+
+          </tr>
+          </tbody>
+          {% empty %}
+              <h3 style ="font-family: 'Aref Ruqaa', serif;">No investigation recorded at a visit to a doctor .</h3>
+
+          {% endfor %}
+          </table>
+        </div>
+        </div>
+        </div>
+            </div>
+            </div>
+</body>
+
+
+{% endblock %}

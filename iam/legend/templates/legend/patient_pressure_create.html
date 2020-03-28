@@ -1,0 +1,100 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<body>
+  <p></p>
+
+  <div class="container ">
+    <div class="row  justify-content-center align-items-center">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">ADD BP</h1></div>
+        <div class="card-body" >
+          <div class="card-text">
+            <form  method="POST">
+              {% csrf_token %}
+              <label for="systolic"> Systolic Blood Pressure:  </label>
+              <span id="systolic">  {{ form.Systolic }} mmhg</span>
+              <p></p>
+              <label for="Diastolic"> Diastolic Blood Pressure:</label>
+              <span id="Diastolic">{{ form.Diastolic }} mmhg</span>
+              <p></p>
+              <label for="comment"> Add any comments,if you please:</label><br>
+              <span id="comment">{{ form.pressure_comments }}</span>
+              <p></p>
+              <label for="time"> Time is set to now,you can change it if you want:</label><br>
+              <span id="time">{{ form.time }}</span>
+
+
+              <div class="card-footer"><h2><input type="submit" class="btn btn-dark" value="SAVE BP"></div>
+</form>
+        </div>
+        </div>
+        </div>
+        </div>
+    <br>
+            </div>
+
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+
+        <body>
+          <p></p>
+
+          <div class="container ">
+            <div class="row  justify-content-center align-items-center">
+
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">أضف قرآئة:</h1></div>
+                <div class="card-body" >
+                  <div class="card-text">
+                    <form  method="POST">
+                      {% csrf_token %}
+                      <label for="systolic">الضغط-الرقم-العالي: </label>
+                      <span id="systolic">  {{ form.Systolic }} mmhg</span>
+                      <p></p>
+                      <label for="Diastolic"> الضغط-الرقم القليل</label>
+                      <span id="Diastolic">{{ form.Diastolic }} mmhg</span>
+                      <p></p>
+                      <label for="comment"> ملاحظات اخرى-إن وجدت:</label><br>
+                      <span id="comment">{{ form.pressure_comments }}</span>
+                      <p></p>
+                      <label for="time"> التاريخ والوقت للقرآئة هو الآن -غيره إن احببت:</label><br>
+                      <span id="time">{{ form.time }}</span>
+
+
+                      <div class="card-footer"><h2><input type="submit" class="btn btn-dark" value="إحفظ"></div>
+        </form>
+                </div>
+                </div>
+                </div>
+                </div>
+            <br>
+                    </div>
+        </body>
+{% endif %}
+{% endblock %}

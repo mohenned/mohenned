@@ -1,0 +1,95 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<body>
+<p></p>
+
+<div class="container" >
+  <div class="row  justify-content-center align-items-center" >
+
+<div class="  card text-black bg-light mb-3  " style="max-width:100%;">
+  <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">This is a list of all the doctors in the website:</h1></div>
+  <div class="card-body " >
+    <form method="get">
+    {{ filter.form|bootstrap }}
+    <button type="submit" class="btn btn-dark">Search</button>
+  </form>
+  <hr>
+  <div class="container overflow-auto" style="max-height:300px">
+  <ul>
+  {% for doctor in filter.qs %}
+    <li><a   href="{% url 'legend:alldoctors_details' doctor.pk  %}" style="color:blue;">{{ doctor.name }} </li>
+    <p></p>
+ {% empty %}
+     <li><h1 style ="font-family: 'Aref Ruqaa', serif;">Nothing to show for this search</h1></li>
+ {% endfor %}
+ </ul>
+
+
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+
+</body>
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+
+          background-repeat: no-repeat;
+          background-size: cover ;
+        height: 100%;}
+        </style>
+        <body>
+          <p></p>
+
+          <div class="container ">
+            <div class="row  justify-content-center align-items-center">
+          <div class=" card text-black bg-light mb-3 text-right " style="max-width:100%;">
+            <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">قائمة بكافة الأطباء -مقدمي الخدمة - المسجلين في الموقع</h1></div>
+            <div class="card-body text-right">
+              <form method="get">
+              {{ filter.form|bootstrap }}
+              <button type="submit" class="btn btn-dark">إبحث</button>
+            </form>
+            <hr>
+            <div class="container overflow-auto" style="max-height:300px">
+            <ul>
+            {% for doctor in filter.qs %}
+               <li ><a   href="{% url 'legend:alldoctors_details' doctor.pk  %}">{{doctor.arabic_name}}/{{doctor.name}}</li>
+                 <p></p>
+              {% empty %}
+                  <li><h1 style ="font-family: 'Aref Ruqaa', serif;">لآيوجد نتائج لإظهارها</h1></li>
+              {% endfor %}
+              </ul>
+
+
+            </div>
+
+            </div>
+            </div>
+            </div>
+</body>
+{% endif %}
+{% endblock %}

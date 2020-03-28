@@ -1,0 +1,145 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header  text-white  " style="width:100%;padding:5px;margin:5px;">
+    <h2 class="text-center" style ="font-family: 'Aref Ruqaa', serif;"> {{doctor.name}} </h2>
+
+  </div>
+</head>
+
+
+<body>
+  <p></p>
+
+  <div class="container " >
+    <div class="row  justify-content-center align-items-center">
+      <div class="col-sm-6">
+      <div class="w3-white w3-text-black w3-card-4" style="max-width:400px;">
+        <div class="w3-display-container">
+          {% if doctor.profile_pic %}
+          <img src="{{doctor.profile_pic.url}}" style="width:100%" alt="Avatar">
+          {% else %}
+          <img src="{% static 'images/pencil.jpg' %}" style="width:100%" alt="Avatar">
+          {% endif %}
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>{{doctor.name}}</h2>
+          </div>
+        </div>
+
+
+<div class="w3-container" >
+  <p></p>
+    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.speciality}}</p>
+    <p><i class="fa fa-mortar-board fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.Degree}}</p>
+    <p><i class="fa fa-male fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.Gender}}</p>
+    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.Date_of_birth}}</p>
+    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.adress}}</p>
+    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{doctor.phone_number}}</p>
+    <hr>
+    <h2 class="w3-text-black w3-padding-16" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>About Me</h2>
+    <div class="w3-container overflow-auto" style="max-height:500px" >
+      <h5 >{{doctor.Other_notes_about_your_self}}</h5>
+    <p></p>
+  </div>
+</div>
+<p></p>
+        </div>
+        </div>
+            </div>
+            <p></p>
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+        <head>
+            <div class="header  text-white  " style="width:100%;padding:5px;margin:5px;">
+            <h2 class="text-center" style ="font-family: 'Aref Ruqaa', serif;"> {{doctor.arabic_name}} </h2>
+
+          </div>
+        </head>
+
+        <body>
+          <p></p>
+
+          <div class="container" >
+            <div class="row  justify-content-center align-items-center">
+              <div class="col-sm-6">
+              <div class="  card text-right text-black bg-white mb-3 " style="max-width:400px;">
+                {% if doctor.profile_pic %}
+                <img src="{{doctor.profile_pic.url}}" style="width:100%" alt="Avatar">
+                {% else %}
+                <img src="{% static 'images/pencil.jpg' %}" style="width:100%" alt="Avatar">
+                {% endif %}
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">{{doctor.arabic_name}}</h1></div>
+                <div class="card-body" >
+                  <div class="card-text">
+                    {% if doctor.speciality %}
+                    <h3><label style ="font-family: 'Aref Ruqaa', serif;">الإختصاص:</label></h3>
+                    <p><strong>{{doctor.speciality}}</strong></p>
+                    {% endif %}
+                    {% if doctor.Degree %}
+                    <h3><label style ="font-family: 'Aref Ruqaa',">الدرجة العلمية:</label></h3>
+                    <p><strong>{{doctor.Degree}}</strong></p>
+                    {% endif %}
+                    {% if doctor.Gender %}
+                    <h3><label style ="font-family: 'Aref Ruqaa',">الجنس:</label></h3>
+                    {% endif %}
+                    {% if doctor.Gender == 'Male'  %}
+                  <p class="card-text"> <strong> ذكر </strong></p>
+                    {% elif doctor.Gender == 'Female'  %}
+                  <p class="card-text"> <strong>  أنثى </strong></p>
+                    {% endif %}
+                    {% if doctor.Date_of_birth %}
+                    <h3><label style ="font-family: 'Aref Ruqaa', serif;">تاريخ الولادة:</label></h3>
+                    <p><strong>{{doctor.Date_of_birth}}</strong></p>
+                    {% endif %}
+                    {% if doctor.adress %}
+                    <h3><label style ="font-family: 'Aref Ruqaa', serif;">العنوان:</label></h3>
+                    <p><strong>{{doctor.adress}}</strong></p>
+                    {% endif %}
+                    {% if doctor.phone_number %}
+                    <h3><label style ="font-family: 'Aref Ruqaa', serif;color:blue;">رقم الهاتف:</label></h3>
+                    <p><strong>{{doctor.phone_number}}</strong></p>
+                    {% endif %}
+                    <p></p>
+                    {% if doctor.Other_notes_about_your_self %}
+                    <h2 class="w3-text-black w3-padding-16" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>عني:</h2>
+                    <div class="w3-container overflow-auto" style="max-height:500px" >
+                      <h5 >{{doctor.Other_notes_about_your_self}}</h5>
+                    {% endif %}
+                    <p></p>
+                </div>
+                </div>
+                </div>
+                </div>
+                <p></p>
+            <br>
+            </div>
+                    </div>
+        </body>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,433 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-26 21:21+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\iam\settings.py:146
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\iam\settings.py:147
+msgid "English"
+msgstr ""
+
+#: .\legend\forms.py:18 .\legend\forms.py:48 .\legend\forms.py:93
+msgid "User Name"
+msgstr "إسم المستخدم"
+
+#: .\legend\forms.py:18 .\legend\forms.py:48 .\legend\forms.py:93
+msgid "Unique and without a space"
+msgstr "يجب ان يكون غير مستخدم وبلا فواصل"
+
+#: .\legend\forms.py:19
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\legend\forms.py:20 .\legend\forms.py:49 .\legend\forms.py:94
+msgid "Optional E-mail"
+msgstr "صندوق بريد-إيميل-إختياري"
+
+#: .\legend\forms.py:20 .\legend\forms.py:49 .\legend\forms.py:94
+msgid "You dont have to provide an e-mail,it is for password resetting."
+msgstr "الإيميل يستخدم في حالة نسيان كلمة السر لوضع كلمة سر جديدة"
+
+#: .\legend\models.py:14 .\legend\models.py:111
+msgid "none"
+msgstr "لآ يوجد"
+
+#: .\legend\models.py:15
+msgid "Hypertension"
+msgstr "إرتفاع ضغط الدم"
+
+#: .\legend\models.py:16
+msgid "Diabetes"
+msgstr "داء السكري"
+
+#: .\legend\models.py:17
+msgid "asthma"
+msgstr "ربو قصبي"
+
+#: .\legend\models.py:18
+msgid "Kidney Disease"
+msgstr "أمراض مزمنة بالكلية"
+
+#: .\legend\models.py:19
+msgid "Renal stones"
+msgstr "حصاة بالكلية"
+
+#: .\legend\models.py:20
+msgid "Anemia"
+msgstr "فقر دم"
+
+#: .\legend\models.py:21
+msgid "Osteoarthritis"
+msgstr "سوفان المفاصل"
+
+#: .\legend\models.py:22
+msgid "Rheumatoid arthritis"
+msgstr "التهاب المفاصل الرثوي-الروماتيزم"
+
+#: .\legend\models.py:25
+msgid "Married"
+msgstr "متزوج/متزوجة"
+
+#: .\legend\models.py:26
+msgid "Single"
+msgstr "أعزب/عزباء"
+
+#: .\legend\models.py:27
+msgid "Divorced"
+msgstr "مطلق/مطلقة"
+
+#: .\legend\models.py:31
+msgid "Male"
+msgstr "ذكر"
+
+#: .\legend\models.py:32
+msgid "Female"
+msgstr "أنثى"
+
+#: .\legend\models.py:35
+msgid "not smoker"
+msgstr "غير مدخن"
+
+#: .\legend\models.py:36
+msgid "Past smoker"
+msgstr "مدخن سابقا"
+
+#: .\legend\models.py:37
+msgid "Active smoker"
+msgstr "مدخن"
+
+#: .\legend\models.py:40
+msgid "Plastic-surgery"
+msgstr "الجراحة التقويمية والتجميلية"
+
+#: .\legend\models.py:41
+msgid "Internal-Medicine"
+msgstr "الطب الباطني -الباطنية"
+
+#: .\legend\models.py:42
+msgid "General-Surgery"
+msgstr "الجراحة العامة"
+
+#: .\legend\models.py:43
+msgid "Pediatric"
+msgstr "طب الأطفال"
+
+#: .\legend\models.py:44
+msgid "Ob/Gyn"
+msgstr "نسائية-توليد"
+
+#: .\legend\models.py:45
+msgid "ENT"
+msgstr "جراحة الأنف والأذن والحنجرة"
+
+#: .\legend\models.py:46
+msgid "Orthopedic"
+msgstr "جراحة العظام والكسور"
+
+#: .\legend\models.py:47
+msgid "Vascular-Surgery"
+msgstr "جراحة الصدر والأوعية الدموية"
+
+#: .\legend\models.py:48
+msgid "Dermatology"
+msgstr "الجلدية"
+
+#: .\legend\models.py:49
+msgid "Ophthalmology"
+msgstr "العيون"
+
+#: .\legend\models.py:50
+msgid "Neurosurgery"
+msgstr "جراحة الجملة العصبية"
+
+#: .\legend\models.py:51
+msgid "Hematology"
+msgstr "أمراض الدم"
+
+#: .\legend\models.py:52
+msgid "Oncology"
+msgstr "الأورام"
+
+#: .\legend\models.py:53
+msgid "Radiology"
+msgstr "الأشعة"
+
+#: .\legend\models.py:54
+msgid "Family-medicine"
+msgstr "طب الأسرة"
+
+#: .\legend\models.py:55
+msgid "Anasthetist"
+msgstr "التخدير والعناية المركزة"
+
+#: .\legend\models.py:56
+msgid "Dentist"
+msgstr "طب الأسنان"
+
+#: .\legend\models.py:57
+msgid "Maxillofacial"
+msgstr "جراحة الوجه والفكين"
+
+#: .\legend\models.py:58 .\legend\models.py:70
+msgid "Other"
+msgstr "أخرى"
+
+#: .\legend\models.py:62
+msgid "O+"
+msgstr ""
+
+#: .\legend\models.py:63
+msgid "O-"
+msgstr ""
+
+#: .\legend\models.py:64
+msgid "AB+"
+msgstr ""
+
+#: .\legend\models.py:65
+msgid "AB-"
+msgstr ""
+
+#: .\legend\models.py:66
+msgid "A+"
+msgstr ""
+
+#: .\legend\models.py:67
+msgid "A-"
+msgstr ""
+
+#: .\legend\models.py:68
+msgid "B+"
+msgstr ""
+
+#: .\legend\models.py:69
+msgid "B-"
+msgstr ""
+
+#: .\legend\models.py:71
+msgid "unknown"
+msgstr "غير معروف"
+
+#: .\legend\models.py:81 .\legend\models.py:184
+msgid "Name"
+msgstr "الإسم"
+
+#: .\legend\models.py:82
+msgid "Name in a arabic"
+msgstr "الأسم باللغة العربية"
+
+#: .\legend\models.py:83
+msgid "Speciality"
+msgstr "الإختصاص"
+
+#: .\legend\models.py:104
+msgid "name"
+msgstr "الأسم"
+
+#: .\legend\models.py:105
+msgid "Gender"
+msgstr "الجنس"
+
+#: .\legend\models.py:106
+msgid "Birth Date"
+msgstr "تاريخ الولادة"
+
+#: .\legend\models.py:106
+msgid "1990-4-20"
+msgstr ""
+
+#: .\legend\models.py:107
+msgid "Adress"
+msgstr "العنوان"
+
+#: .\legend\models.py:107
+msgid "Baghdad"
+msgstr "بغداد"
+
+#: .\legend\models.py:108
+msgid "Phone number"
+msgstr "رقم الهاتف"
+
+#: .\legend\models.py:109
+msgid "Occupation"
+msgstr "الوظيفة"
+
+#: .\legend\models.py:110
+msgid "Marital state"
+msgstr "الحالة الزوجية"
+
+#: .\legend\models.py:111
+msgid "Allergies"
+msgstr "حساسية"
+
+#: .\legend\models.py:112
+msgid "Chronic Diseases"
+msgstr "أمراض مزمنة"
+
+#: .\legend\models.py:113
+msgid "Any other diseases"
+msgstr "امراض اخرى"
+
+#: .\legend\models.py:114
+msgid "Smoking"
+msgstr "التدخين"
+
+#: .\legend\models.py:115
+msgid "Smoking notes"
+msgstr "كمية التدخين او النركيلة والفترة"
+
+#: .\legend\models.py:116
+msgid "Emergency contact"
+msgstr "عند الطواريء اتصل بِ"
+
+#: .\legend\models.py:117
+msgid "Blood Group"
+msgstr "فصيلة الدم"
+
+#: .\legend\models.py:118
+msgid "Profile picture"
+msgstr "الصورة الشخصية"
+
+#: .\legend\models.py:119
+msgid "Notes about me"
+msgstr "عني"
+
+#: .\legend\models.py:185
+msgid "Value"
+msgstr "القيمة"
+
+#: .\legend\models.py:186 .\legend\models.py:216
+msgid "Time"
+msgstr "الوقت"
+
+#: .\legend\models.py:187
+msgid "Investigation Comments"
+msgstr "تعليق عن التحليل"
+
+#: .\legend\models.py:204
+msgid "Medication"
+msgstr "إسم الدواء"
+
+#: .\legend\models.py:205
+msgid "Dose"
+msgstr "الجرعة"
+
+#: .\legend\models.py:206
+msgid "Frequency"
+msgstr "التكرار"
+
+#: .\legend\models.py:207
+msgid "Directions"
+msgstr "التعليمات"
+
+#: .\legend\models.py:208
+msgid "Prescription Comments"
+msgstr "تعليق على الدواء-إن وجد-"
+
+#: .\legend\models.py:214
+msgid "Title"
+msgstr "العنوان"
+
+#: .\legend\models.py:215
+msgid "Note"
+msgstr "الملاحظة"
+
+#: .\legend\templates\legend\base.html:33
+#: .\legend\templates\legend\home.html:42
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\legend\templates\legend\base.html:35
+#: .\legend\templates\legend\home.html:44
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\legend\templates\legend\home.html:47
+msgid "Search Doctors"
+msgstr "ابحث عن طبيب"
+
+#: .\legend\templates\legend\home.html:63
+#: .\legend\templates\legend\home.html:143
+msgid "JUTHOOR!"
+msgstr "جذوور"
+
+#: .\legend\templates\legend\home.html:65
+msgid "Create an account:"
+msgstr "إنشاء حساب جديد"
+
+#: .\legend\templates\legend\home.html:66
+msgid "Patient account"
+msgstr "متلقي للعناية الصحية"
+
+#: .\legend\templates\legend\home.html:70
+msgid "Login:"
+msgstr "تسجيل الدخول"
+
+#: .\legend\templates\legend\home.html:72
+msgid "log in"
+msgstr "دخول"
+
+#: .\legend\templates\legend\home.html:77
+msgid "Thank you"
+msgstr "شكر"
+
+#: .\legend\templates\legend\home.html:77
+msgid "About"
+msgstr "عن"
+
+#: .\legend\templates\legend\thankyou.html:257
+msgid ""
+"To humans ,the real humans, paving the ocean for others, sacrificing their "
+"time and effort so that a stranger far far away can have a better future by "
+"their gifts and a brighter life by their kind giving souls , to them i say"
+msgstr "إلى الابطال والعلماء وممهدي طريق العلم "
+
+#: .\legend\templates\legend\thankyou.html:258
+msgid "THANK YOU,AND GOD BLESS YOU"
+msgstr "شكرا جزيلا"
+
+#: .\legend\templates\legend\thankyou.html:271
+msgid "And many many others"
+msgstr "وغيرهم الكثير"
+
+#~ msgid "Please Login"
+#~ msgstr "سجل دخولك رجاء"
+
+#~ msgid "Username:"
+#~ msgstr "إسم المستخدم"
+
+#~ msgid "Password:"
+#~ msgstr "كلمة المرور"
+
+#~ msgid "Forget password?"
+#~ msgstr "نسيت كلمة السر"
+
+#, fuzzy
+#~| msgid "About"
+#~ msgid "About Me"
+#~ msgstr "عني"
+
+#~ msgid "some links"
+#~ msgstr "اذهب إلى"
+
+#~ msgid "Visited Doctors"
+#~ msgstr "أطباىي"

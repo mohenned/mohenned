@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load i18n %}
+
+<html>
+<title>Juthoor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+{% load static %}
+<link rel="stylesheet" href="{% static 'legend/style.css' %}" type="text/css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style>
+  h1{font-family: 'Indie Flower', cursive;}
+body {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url("{% static 'images/road.jpeg' %}");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}"><span style="color:red;">J</span>uthoor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">{% if user.is_authenticated %}
+          <li><a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}<span class="sr-only">(current)</span></a></li>
+        {% else %}
+          <li><a class="nav-link" href="{% url 'legend:user_login' %}">{% trans "Login" %}<span class="sr-only">(current)</span></a></li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'legend:alldoctors_search'  %}">{% trans "Search Doctors" %}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <h1><span style="color:red;">J</span>uthoor</h1>
+    <h6>Trial version</h6>
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top"><strong>{% trans "JUTHOOR!" %}</strong></h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p style="color:black" class="w3-large w3-center"><strong><i>{% trans "Create an account:" %}</i></strong></p>
+    <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:patientregister'%}">{% trans "Patient account" %}</a></p>
+     <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:doctorregister'%}">doctor account</a></p>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+
+    <p style="color:black" class="w3-large w3-center"><strong><i>{% trans "Login:" %}</i></strong></p>
+    <!-- <div class="w3-display-middle w3-display-hover"> -->
+    <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:user_login'%}">{% trans "log in" %} </a></p>
+  <!-- </div> -->
+
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    <p><a id="thank" href="{% url 'legend:thankyou' %}">{% trans "Thank you" %}</a><span style="color:white;"> / </span><a id="about" href="{% url 'legend:about' %}" >{% trans "About" %}</a></p>
+  </div>
+  <div class="w3-display-bottomright w3-padding-large">
+    <form id="lang" action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select
+            name="language"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                        selected{% endif %}> {{ language.name_local }} ({{ language.code }})
+                </option>
+            {% endfor %}
+        </select>
+        <input class="btn btn-outline-light" type="submit" value="O.K."/>
+    </form>
+  </div>
+</div>
+
+</body>
+{% elif LANGUAGE_CODE == 'ar' %}
+<style>
+h1,h2,h3,h4,h5,h6,div ,p{direction: rtl;align-items:right;}
+  h1{font-family: 'Indie Flower', cursive;}
+body {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url("{% static 'images/road.jpeg' %}");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand ml-auto text-right" href="{% url 'home' %}"><span style="color:red;">ج</span>ذوور</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">{% if user.is_authenticated %}
+          <li><a class="nav-link text-right" href="{% url 'logout' %}">تسجيل الخروج<span class="sr-only">(current)</span></a></li>
+        {% else %}
+          <li><a class="nav-link text-right" href="{% url 'legend:user_login' %}">تسجيل الدخول<span class="sr-only">(current)</span></a></li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link text-right" href="{% url 'legend:alldoctors_search'  %}">إبحث عن طبيب</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topright w3-padding-large w3-xlarge">
+    <h1 ><span style="color:red;">ج</span>ذوور</h1>
+    <h6>نسخة تجريبية</h6>
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top"><strong>{% trans "JUTHOOR!" %}</strong></h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p style="color:black" class="w3-large w3-center"><strong><i>إنشاء حساب جديد</i></strong></p>
+    <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:patientregister'%}">متلقي للعناية الصحية</a></p>
+     <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:doctorregister'%}">طبيب</a></p>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+
+    <p style="color:black" class="w3-large w3-center"><strong><i>تسجيل الدخول</i></strong></p>
+    <!-- <div class="w3-display-middle w3-display-hover"> -->
+    <p class="w3-large w3-center"><a class="btn btn-outline-light" href="{% url 'legend:user_login'%}">تسجيل الدخول</a></p>
+  <!-- </div> -->
+
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    <p><a id="thank" href="{% url 'legend:thankyou' %}">شكر</a><span style="color:white;"> / </span><a id="about" href="{% url 'legend:about' %}" >عن</a></p>
+  </div>
+  <div class="w3-display-bottomright w3-padding-large">
+    <form id="lang" action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select
+            name="language"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                        selected{% endif %}> {{ language.name_local }} ({{ language.code }})
+                </option>
+            {% endfor %}
+        </select>
+        <input class="btn btn-outline-light" type="submit" value="إذهب"/>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
+{% endif %}

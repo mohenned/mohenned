@@ -1,0 +1,188 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header bg-info text-white " style="width:100%;padding:5px;margin:5px;">
+    <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Hello {{visit.patient}} These are the details of your Visit to {{visit.doctor}} on:</h2>
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">{{visit.time}}</h3>
+  </div>
+</head>
+
+<body>
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+    <p></p>
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Visit details:</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:700px">
+            <h4>The reason of the visit was : <strong>{{ visit.Cheif_complaint}}</strong> for <strong>{{ visit.Duration}}</strong></h4>
+            <h4>History of present illness :<br> <strong>{{ visit.Present_illness}}</strong> </h4>
+            <h4>Review of systems :<br> <strong>{{ visit.review_of_systems}}</strong> </h4>
+            <h4>Examination :<br> <strong>{{ visit.Examination}}</strong> </h4>
+            <h4>Heart rate : <strong>{{ visit.Heart_rate}} beats/min.</strong> <br> Repiratory rate: <strong>{{ visit.Respiratory_rate}}/min.</strong></h4>
+            <h4>Temperature :<br> <strong>{{ visit.Temp}} C</strong> </h4>
+            <h4>Comments :<br> <strong>{{ visit.Visit_comments}} </strong> </h4>
+        </div>
+        </div>
+        </div>
+        </div>
+    <br>
+
+<!-- right column -->
+    <div class="w3-twothird">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Blood Pressure(s):</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:300px">
+            {% for pressure in visit_list %}
+
+             <h4>Value:  {{pressure}}  mmhg</h4>
+             <h4>Comments:<br>{{pressure.pressure_comments}}</h4>
+            {% empty %}
+            <li>Blood presure was not recorded</li>
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">INVESTIGATION(s):</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:300px">
+            {% for investigation in investigation_list %}
+
+             <h4>Name: {{investigation.name}}</h4>
+             <h4>Result: {{investigation.Value}}</h4>
+             <h4>Comments:<br>{{investigation.investigations_comments}}</h4>
+            {% empty %}
+            <li>No invesstigations done</li>
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">MEDICATION(s):</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:300px">
+            {% for prescription in prescription_list %}
+            <ul>
+              <li><h4>{{prescription.medication}}-{{prescription.dosage}}-{{prescription.frequency}}</h4></li>
+              <h4>Directions :  {{prescription.directions}}</h4>
+              <h4>Comments:<br>{{prescription.prescription_comments}}</h4>
+            </ul>
+
+            {% empty %}
+            <li>No Prescription written</li>
+            {% endfor %}
+        </div>
+        </div>
+        </div>
+            </div>
+            </div>
+
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+        <head>
+            <div class="header w3-right bg-info text-white text-right " style="width:100%;padding:5px;margin:5px;">
+            <h2  style ="font-family: 'Aref Ruqaa', serif;margin-right:5px;">تفاصيل زيارتك إلى {{visit.doctor}} في:</h2>
+            <p></p>
+            <h3  style ="font-family: 'Aref Ruqaa', serif;margin-right:5px;">{{visit.time}}</h3>
+          </div>
+        </head>
+        <body>
+          <div class="container">
+          <div class="w3-row-padding">
+            <div  class="w3-third w3-right">
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">تفاصيل الزيارة:</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:700px">
+                    <h4>سبب الزيارة:<br> <strong>{{ visit.Cheif_complaint}}</strong><br> لمدة: <strong>{{ visit.Duration}}</strong></h4>
+                    <h4>تفاصيل الزيارة:<br> <strong>{{ visit.Present_illness}}</strong> </h4>
+                    <h4>مراجعة اجهزة الجسم:<br> <strong>{{ visit.review_of_systems}}</strong> </h4>
+                    <h4>عند الفحص<br> <strong>{{ visit.Examination}}</strong> </h4>
+                    <h4>النبض: <strong>{{ visit.Heart_rate}} نبضة بالدقيقة</strong> <br> التنفس:<strong>{{ visit.Respiratory_rate}} بالدقيقة</strong></h4>
+                    <h4>درجة الحرارة:<strong> {{ visit.Temp}} درجة سيليزية</strong> </h4>
+                    <h4>ملاحظات أخرى :<br> <strong>{{ visit.Visit_comments}} </strong> </h4>
+                </div>
+                </div>
+                </div>
+        </div>
+            <div  class="w3-twothird">
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">ضغط الدم:</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:300px">
+                    {% for pressure in visit_list %}
+
+                     <h4>  {{pressure}}  mmhg</h4>
+                     <h4>{{pressure.pressure_comments}}</h4>
+                    {% empty %}
+                    <li>لآتوجد قرآئة ضغط لإظهارها</li>
+                    {% endfor %}
+                </div>
+                </div>
+
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">التحاليل:</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:300px">
+                    {% for investigation in investigation_list %}
+
+                     <h4>إسم التحليل:{{investigation.name}}</h4>
+                     <h4>النتيجة:{{investigation.Value}}</h4>
+                     <h4>{{investigation.investigations_comments}}</h4>
+                    {% empty %}
+                    <li>لآتوجد تحاليل لإظهارها</li>
+                    {% endfor %}
+                </div>
+                </div>
+
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">الأدوية</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:300px">
+                    {% for prescription in prescription_list %}
+                    <ul>
+                      <li><h4>{{prescription.medication}}-{{prescription.dosage}}-{{prescription.frequency}}</h4></li>
+                      <h4> {{prescription.directions}}</h4>
+                      <h4>{{prescription.prescription_comments}}</h4>
+                    </ul>
+
+                    {% empty %}
+                    <li>لآتوجد أدوية</li>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+            </div>
+        </body>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;}
+</style>
+<head>
+    <div class="header  text-white  " style="width:100%;padding:5px;margin:5px;">
+    <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Hello, {{user.patient.name}} </h2>
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Good ,every time, to you</h3>
+  </div>
+</head>
+
+<body >
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          {% if user.patient.profile_pic %}
+          <img src="{{user.patient.profile_pic.url}}" style="width:100%" alt="Avatar">
+          {% else %}
+          <img src="media/images/pencil.jpg" style="width:100%" alt="Avatar">
+          {% endif %}
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>{{user.patient.name}}</h2>
+          </div>
+        </div>
+
+
+<div class="w3-container w3-text-black">
+  <p></p>
+    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.Occupation}}</p>
+    <p><i class="fa fa-male fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.Gender}}</p>
+    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.Date_of_birth}}</p>
+    <p><i class="fa fa fa-heart fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.marrital_status}}</p>
+    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.adress}}</p>
+    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.email}}</p>
+    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.phone_number}}</p>
+    <p><i class="fa fa-group fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.Next_of_kin}}</p>
+    <p><i class="fa fa-remove fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.smoker}}:{{user.patient.Smoking_notes}}</p>
+    <p><i class="fa fa-tint fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.Blood_group}}</p>
+    <p><i class="fa fa-vcard-o fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user.patient.chronic_diseases}},{{user.patient.Other_chronic_diseases}}</p>
+    <p>Allergies:<i class="w3-margin-right w3-large text-teal"></i><span style="color:red;">{{user.patient.allergies}}</span></p>
+    <hr>
+    <a style="color:#006652;" class="w3-button w3-black" href="{% url 'legend:patient_update' user.pk %}" >Edit Profile</a>
+    <p></p>
+  </div>
+</div>
+        <br>
+      </div>
+    <br>
+
+<!-- right column -->
+    <div class="w3-twothird">
+      <div class="w3-container card w3-white w3-margin-bottom">
+        <h2 class="w3-text-black w3-padding-16"><i class="fa fa-edit fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>About Me</h2>
+        <div class="w3-container overflow-auto" style="max-height:300px" >
+          <h5  >{{user.patient.Other_notes_about_your_self}}</h5>
+          </div>
+          </div>
+
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-black w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>some links</h2>
+            <div class="w3-container">
+              <h5><b><a href="{% url 'legend:patient_doctors'  %} " class="btn btn-outline-success" >Visited Doctors</a></b></h5>
+              <h5 ><b><a href="{% url 'legend:patient_BP'  %} " class="btn btn-outline-success" >Blood Pressure</a></b></h5>
+              <h5><b><a href="{% url 'legend:patient_Investigations'  %} " class="btn btn-outline-success" >Investigations</a></b></h5>
+              <h5><b><a href="{% url 'legend:patient_prescription'  %} " class="btn btn-outline-success" >Medications</a></b></h5>
+              <h5><b><a href="{% url 'legend:patient_Notes'  %} " class="btn btn-outline-success" >My Notes</a></b></h5>
+              <h5><b><a href="{% url 'legend:alldoctors_search'  %} " class="btn btn-success" >Search Doctors</a></b></h5>
+              <hr>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+</body>
+
+{% elif LANGUAGE_CODE == 'ar' %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6,div ,p{direction: rtl;align-items:right;}
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header  text-white  " style="width:100%;padding:5px;margin:5px;">
+    <h2 class="text-right" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">مراحب {{user.patient.name}} </h2>
+    <h3 class="text-right" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">عسى أن يكون يومك سعيد دائما</h3>
+  </div>
+</head>
+<body>
+  <div class="container">
+  <div class="w3-row-padding">
+
+    <div  class="w3-third w3-right">
+<p></p>
+      <div class="card text-right" >
+        {% if user.patient.profile_pic %}
+        <img src="{{user.patient.profile_pic.url}}" style="width:100%" alt="Avatar">
+        {% else %}
+        <img src="media/images/pencil.jpg" style="width:100%" alt="Avatar">
+        {% endif %}
+
+<div class="card-header bg-light "> <h1 style ="font-family: 'Aref Ruqaa', serif;color:red;">{{user.patient.name}}</h1></div>
+
+
+  <!-- <h5 class="card-title "><strong>{{user.patient.name}}</strong></h5>
+
+  <hr> -->
+  <div class="card-body">
+    {% if user.patient.Gender == 'Male'  %}
+  <p class="card-text"> <strong> ذكر </strong></p>
+    {% elif user.patient.Gender == 'Female'  %}
+  <p class="card-text"> <strong>  أنثى </strong></p>
+    {% endif %}
+  <p><strong>{{user.patient.Date_of_birth}}</strong></p>
+  {% if user.patient.Occupation %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;">الوضيفة:</label>
+  <p><strong>{{user.patient.Occupation}}</strong></p>
+  {% endif %}
+  {% if user.patient.address or  user.patient.phone_number or  user.email %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;">معلومات الوصول:</label>
+  <p><strong>{{user.patient.adress}}</strong></p>
+  <p><strong>{{user.patient.phone_number}}</strong></p>
+  <p><strong>{{user.email}}</strong></p>
+  {% endif %}
+  {% if user.patient.marrital_status %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;">الحالة الزوجية:</label>
+  {% if user.patient.marrital_status == 'Married'  %}
+  <p><strong>متزوج</strong</p>
+  {% elif user.patient.marrital_status == 'Single'  %}
+  <p><strong>أعزب</strong></p>
+  {% elif user.patient.marrital_status == 'Divorced'  %}
+  <p><strong>مطلق</strong></p>
+  {% endif %}
+  {% endif %}
+  <p><strong>{{user.patient.chronic_diseases}} {{user.patient.Other_chronic_diseases}}</strong></p>
+  {% if user.patient.smoker  %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;">عن التدخين:</label>
+  {% if user.patient.smoker == 'not smoker'  %}
+  <p><strong>غير مدخن</strong></p>
+  {% elif user.patient.smoker == 'Past smoker'  %}
+  <p><strong>تارك للتدخين</strong></p>
+  {% elif user.patient.smoker == 'Active smoker'  %}
+  <p><strong>مدخن></strong</p>
+  {% endif %}
+  <p><strong>{{user.patient.Smoking_notes}}</strong></p>
+  {% endif %}
+  {% if user.patient.Blood_group  %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;" for="blood">فصيلة الدم</label>
+  <p id="blood"><strong>{{user.patient.Blood_group}}</strong></p>
+  {% endif %}
+  {% if user.patient.Next_of_kin  %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;" for="next">عند الطواريء اتصل بِ</label>
+  <p id="next"><strong>{{user.patient.Next_of_kin}}</strong></p>
+  {% endif %}
+  <label style ="font-family: 'Aref Ruqaa', serif;color:blue;" for="all">حساسية:</label>
+  <p style="color:red;" name="all"><strong>{{user.patient.allergies}}</strong></p>
+  <a href="{% url 'legend:patient_update' user.pk %}" class="btn btn-primary">تغيير المعلومات الشخصية</a>
+</div>
+</div>
+    </div>
+    <p></p>
+    <div  class="w3-twothird">
+
+      <p></p>
+      <div  class="card text-right" >
+        <div  class="card-header bg-light "> <h1 style ="font-family: 'Aref Ruqaa', serif;" >أقول</h1></div>
+         <div class="card-footer bg-light overflow-auto" style="max-height:200px""><h2>{{user.patient.Other_notes_about_your_self}}</h2></div>
+      </div>
+      <p></p>
+      <div  class="card text-right" >
+        <div class="card-header bg-light "> <h1 style ="font-family: 'Aref Ruqaa', serif;">إذهب إلى:</h1></div>
+         <div class="card-body bg-light ">
+           <a href="{% url 'legend:patient_doctors'  %} " class="btn btn-outline-primary" >أطباىْي</a>
+           <p></p>
+           <a href="{% url 'legend:patient_BP'  %} " class="btn btn-outline-primary" >ظغط الدم</a>
+           <p></p>
+           <a href="{% url 'legend:patient_Investigations'  %} " class="btn btn-outline-primary" >التحاليل</a>
+           <p></p>
+           <a href="{% url 'legend:patient_prescription'  %} " class="btn btn-outline-primary" >أدويتي</a>
+           <p></p>
+           <a href="{% url 'legend:patient_Notes'  %} " class="btn btn-outline-primary" >ملاحظاتي</a>
+           <p></p>
+           <a href="{% url 'legend:alldoctors_search'  %}" class="btn btn-primary" >إبحث عن طبيب</a>
+
+         </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+{% endif %}
+{% endblock %}

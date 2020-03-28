@@ -1,0 +1,50 @@
+
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header bg-light text-black " style="width:100%;padding:5px;margin:5px;">
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">A visit was created between <strong> Dr.,{{visit.doctor.name}}</strong> and <strong>Mr./Mrs.,{{visit.patient.name}}</strong>;</h3>
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">On <strong>{{visit.time}}</strong> , About <strong>{{visit.Cheif_complaint}}</strong>.</h3>
+  </div>
+</head>
+<body>
+  <p></p>
+
+
+  <div class="container ">
+    <div class="row  justify-content-center align-items-center">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h3 style ="font-family: 'Aref Ruqaa', serif;">You can add as many of any of the list below and/or just save and proceed</h3></div>
+        <div class="card-body" >
+          <div class="card-text">
+            <a href="{% url 'legend:visitBP_create' visit.pk  %}" class="btn btn-outline-dark" >Add Blood Pressure</a>
+            <p></p>
+            <a href="{% url 'legend:visitInv_create' visit.pk  %}" class="btn btn-outline-dark" >Add an investigation</a>
+            <p></p>
+            <a href="{% url 'legend:visitpresc_create' visit.pk  %}" class="btn btn-outline-dark" >Add a medication</a>
+        </div>
+        </div>
+        <div class="card-footer" ><h3 ><a class="btn btn-dark"  href="{% url "legend:doctorvisitdetails" visit.pk  %}">Finish,Go to the visit</a></h3></div>
+        </div>
+        </div>
+    <br>
+            </div>
+
+</body>
+{% endblock %}

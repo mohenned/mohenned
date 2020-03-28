@@ -1,0 +1,50 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<body>
+<p></p>
+
+<div class="container" style="width:90%" >
+  <div class="row  justify-content-center align-items-center" >
+
+<div class="  card text-black bg-light mb-3  " style="max-width:100%;">
+  <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">This is a list of your patients,that you have added through a visit:</h1></div>
+  <div class="card-body " >
+    <div class="container" >
+      <form method="get">
+      {{ filter.form|bootstrap }}
+      <button type="submit" class="btn btn-dark">Search</button>
+    </form>
+    </div>
+<hr>
+<h3 style ="font-family: 'Aref Ruqaa', serif;">click on a patient to see your common visits:</h3>
+<hr>
+  <div class="container overflow-auto" style="max-height:400px" >
+  <ul>
+  {% for patient in filter.qs %}
+    <li><a   href="{% url "legend:doctorpatientvisits" patient.pk  %}" >{{ patient.name }} </li>
+    <p></p>
+ {% empty %}
+     <li><h1 style ="font-family: 'Aref Ruqaa', serif;">Nothing to show for this search</h1></li>
+ {% endfor %}
+ </ul>
+  </div>
+  </div>
+  </div>
+  </div>
+</body>
+{% endblock %}

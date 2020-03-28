@@ -1,0 +1,272 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+
+
+<body>
+  <p></p>
+
+  <div class="container ">
+    <div class="row  justify-content-center align-items-center">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">
+          To the people ,whose existense make the world a little bit better each and every day whose choice to spread the most valuable asset
+          in all the times of humanity ,knowldge,made this website ,and many others i am certain, possible ,to them i say thank you.
+        </h1>
+        <h4>really thank you</h4>
+      </div>
+        <div class="card-body">
+          <div class="card-text">
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">The website is built on django and python of course:</h3>
+            <h5><a href="https://www.djangoproject.com/" style="color:blue;" >Django</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">answered many questions a real life saver: </h3>
+            <h5><a href="https://www.stackoverflow.com/" style="color:blue;">Stack over flow</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">major parts of the front end: </h3>
+            <h5><a href="https://getbootstrap.com/" style="color:blue;" >bootstrap</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">big parts of the front end: </h3>
+            <h5><a href="https://www.w3schools.com/" style="color:blue;" >W3 schools</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;"> to understand, a huge full codes can really help written on: </h3>
+            <h5><a href="https://www.github.com/" style="color:blue;">github</a> and i could upload my code too</h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;"> simple and sufficient many times ,it saved me a couple of times:</h3>
+            <h5><a href="https://www.simpleisbetterthancomplex.com/" style="color:blue;">Simple is better than complex</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">basically,The Good search by them the bad ones by me: </h3>
+            <h5><a href="https://github.com/carltongibson/django-filter" style="color:blue;">Django-filter</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">multi-selection: </h3>
+            <h5><a href="https://pypi.org/project/django-multiselectfield/" style="color:blue;">multiselect-field</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;">bootstrap form: </h3>
+            <h5><a href="https://django-bootstrap-form.readthedocs.io/en/latest/" style="color:blue;">boot strap form</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> many  beautiful photos ,including the background:</h3>
+            <h5><a href="https://www.pexels.com/" style="color:blue;">Pexels</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> nice icons not sure what they call them:</h3>
+            <h5><a href="https://fontawesome.com/" style="color:blue;">Font Awesome</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> needless to describe:</h3>
+            <h5><a href="https://fonts.google.com/" style="color:blue;">Google fonts</a></h5>
+            <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> Other might be useful links:</h3>
+            <h5><a href="https://www.youtube.com/channel/UC_F-PRC-SXbaGj_kmMZSotA" style="color:blue;"> youtube guy .helped with the translation</a></h5>
+            <h5><a href="https://www.youtube.com/user/Max204204204" style="color:blue;"> youtube guy.easily explains alot about django</a></h5>
+
+            <h4>And many many others</h4>
+        </div>
+        </div>
+        <div class="card-footer" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Some lincences of mentioned website and this website.</h1>
+        <div class="card-text">
+          <h6>Django</h6>
+          <p>I could not find a license like in git hub o the link to django is up their what i understood is that i should not say that
+          they are sponsering or are responsible for my website and that i should not use their logo please click the link to know more
+        and if i understood something wrong please notify me as programing english is much easier than legal english</p>
+        <h6>Bootstrap</h6>
+        <p><a href="https://getbootstrap.com/docs/4.4/about/license/" style="color:blue;"> license</a></p>
+        <h6>w3schools</h6>
+        <p><a href="https://www.w3schools.com/about/about_copyright.asp" style="color:blue;"> license</a></p>
+        <h6>Git hub</h6>
+        <p><a href="https://help.github.com/en/github/site-policy/github-terms-of-service" style="color:blue;"> license</a></p>
+        <h6>pexels</h6>
+        <p><a href="https://www.pexels.com/photo-license/" style="color:blue;"> license</a></p>
+        <p><a href="https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="color:blue;"> the background road photo</a></p>
+        <p><a href="https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="color:blue;"> coloring pencils </a></p>
+        <h6>Font awesome</h6>
+        <p><a href="https://fontawesome.com/license/free" style="color:blue;"> license</a></p>
+        <h6>Django-filter</h6>
+        <p>Copyright (c) Alex Gaynor and individual contributors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ * The names of its contributors may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<hr>
+<h3>Not all licenses are mentioned either because i couldnt find a clear license or it was saying this is knowldge just take it .The
+above and truly the ones i couldnt remeber ,which is a very selfish action of me to forget , made me very happy i honestly whish i didnt break any
+legal or moral code of this amazing society , sorry, and please notify me if i did, as i tried really hard to avoid insulting you by reading the
+various licenses of them all which was harder than i expected it to be ,to tell the truth, may be it is easier for native english speakers.
+</h3>
+<h3>THANK YOU</h3>
+          </div>
+      </div>
+        </div>
+        </div>
+    <br>
+            </div>
+
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+
+        <body>
+          <p></p>
+
+          <div class="container ">
+            <div class="row  justify-content-center align-items-center">
+
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">
+                  إلى الرائعين الذي يحلمون بغدٍ يحيا بالعلم والمعرفة
+                </h1>
+                <h4>شكرا</h4>
+              </div>
+                <div class="card-body">
+                  <div class="card-text">
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">الموقع مبني على جانغو -وبايثون أكيد:</h3>
+                    <h5><a href="https://www.djangoproject.com/" style="color:blue;" >Django</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">حيث تجد الجواب على أسئلتك </h3>
+                    <h5><a href="https://www.stackoverflow.com/" style="color:blue;">Stack over flow</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">جزء كبير من التصاميم تم بنائها بواسطة: </h3>
+                    <h5><a href="https://getbootstrap.com/" style="color:blue;" >bootstrap</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">جزء كبير آخر من التصاميم </h3>
+                    <h5><a href="https://www.w3schools.com/" style="color:blue;" >W3 schools</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;"> الكثير من البرامج مكتوبة اذا اردت ان تقرأها لتفهم  </h3>
+                    <h5><a href="https://www.github.com/" style="color:blue;">github</a> كما يمكنني رفع برنامجي خلاله</h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;"> شافي ووافي في الكثير من الاحيان</h3>
+                    <h5><a href="https://www.simpleisbetterthancomplex.com/" style="color:blue;">Simple is better than complex</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">خاصية بحث سهلة ومريحة وعملية </h3>
+                    <h5><a href="https://github.com/carltongibson/django-filter" style="color:blue;">Django-filter</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">لإختيار اكثر من خيار -فد شي بالبرنامج </h3>
+                    <h5><a href="https://pypi.org/project/django-multiselectfield/" style="color:blue;">multiselect-field</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;">قوائم بوتستراب </h3>
+                    <h5><a href="https://django-bootstrap-form.readthedocs.io/en/latest/" style="color:blue;">boot strap form</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> صور رآئعة</h3>
+                    <h5><a href="https://www.pexels.com/" style="color:blue;">Pexels</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> ذني الصور الصغار بصف الكلمات مثل جنطة ورجال </h3>
+                    <h5><a href="https://fontawesome.com/" style="color:blue;">Font Awesome</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> خطوط بديعة:</h3>
+                    <h5><a href="https://fonts.google.com/" style="color:blue;">Google fonts</a></h5>
+                    <h3 style ="font-family: 'Aref Ruqaa', serif;" style="color:blue;"> روابط اخرى</h3>
+                    <h5><a href="https://www.youtube.com/channel/UC_F-PRC-SXbaGj_kmMZSotA" style="color:blue;"> واحد يشرح على يوتيوب</a></h5>
+                    <h5><a href="https://www.youtube.com/user/Max204204204" style="color:blue;"> واحد ثاني هم يشرح</a></h5>
+
+                    <h4>
+                      وهواي غيرهم عرب وأجانب عجيب ومفرح شكد أكو ناس بس تريد تنطي علم
+                    </h4>
+                </div>
+                </div>
+                <div class="card-footer" ><h1 style ="font-family: 'Aref Ruqaa', serif;">بعض الرخص الخاصة بالمواقع المذكورة وبالتالي هالموقع</h1>
+                <div class="card-text">
+                  <h2>
+                    صراحة اغلب المواقع المذكورة على الرغم من هواي دورت ما طالبين اصلا ينذكرون من تستخدم أشياء منهم
+                    مع ذلك احسهه مو صحيحة واحد ياخذ شي ميكول شكرا لذا ذكرت مواقعهم ودورت كلش هواي عن موقع منهن يكول  ممنوع تستعمل شي
+                    ما لكيت ،والله يستر .
+                  </h2>
+                  <h2>الروابط للمواقع موجودة فوك ورخص بعضهن موجودة بالإنكليزي جوه  نسخ من الصفحة الانكليزية خاف نغير شي حته يكون واضح</h2>
+                  <h6>Django</h6>
+                  <p>I could not find a license like in git hub o the link to django is up their what i understood is that i should not say that
+                  they are sponsering or are responsible for my website and that i should not use their logo please click the link to know more
+                and if i understood something wrong please notify me as programing english is much easier than legal english</p>
+                <h6>Bootstrap</h6>
+                <p><a href="https://getbootstrap.com/docs/4.4/about/license/" style="color:blue;"> license</a></p>
+                <h6>w3schools</h6>
+                <p><a href="https://www.w3schools.com/about/about_copyright.asp" style="color:blue;"> license</a></p>
+                <h6>Git hub</h6>
+                <p><a href="https://help.github.com/en/github/site-policy/github-terms-of-service" style="color:blue;"> license</a></p>
+                <h6>pexels</h6>
+                <p><a href="https://www.pexels.com/photo-license/" style="color:blue;"> license</a></p>
+                <p><a href="https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="color:blue;"> the background road photo</a></p>
+                <p><a href="https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="color:blue;"> coloring pencils </a></p>
+                <h6>Font awesome</h6>
+                <p><a href="https://fontawesome.com/license/free" style="color:blue;"> license</a></p>
+                <h6>Django-filter</h6>
+                <p>Copyright (c) Alex Gaynor and individual contributors.
+        All rights reserved.
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+
+         * Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+         * Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+         * The names of its contributors may not be used to endorse or promote products
+           derived from this software without specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+        <h2>
+ملاحظة : بعض الكلام باللغة العربية الفصيحة اعتزازاً بجمال لغتنا وعظيم تاريخها وعمق حاضرها والبعض الاخر باللهجة العامة احتفاء بمتكلميها
+ففكرت ،جا لعد ليش ما احجي بالعامية.
+        </h2>
+                  </div>
+              </div>
+                </div>
+                </div>
+            <br>
+                    </div>
+        </body>
+{% endif %}
+{% endblock %}
+<!-- <style >
+  h4  {color:white;}
+  #lang{text-align:right;}
+
+body{background: url(media/images/black.webp) repeat 0 0;text-align:center;}
+</style>
+
+<p></p>
+
+
+<div class="container">
+<h4>{% trans "To humans ,the real humans, paving the ocean for others, sacrificing their time and effort so that a stranger far far away can have a better future by their gifts and a brighter life by their kind giving souls , to them i say" %}</h4>
+  <h4>{% trans "THANK YOU,AND GOD BLESS YOU" %}</h4>
+
+<h5><a href="https://www.stackoverflow.com/">Stack over flow</a></h5>
+<h5><a href="https://www.djangoproject.com/">Django</a></h5>
+<h5><a href="https://getbootstrap.com/">bootstrap</a></h5>
+<h5><a href="https://www.github.com/">github</a></h5>
+<h5><a href="https://www.w3schools.com/">W3 schools</a></h5>
+<h5><a href="https://www.simpleisbetterthancomplex.com/">Simple is better than complex</a></h5>
+<h5><a href="https://www.pexels.com/">Pexels:images</a></h5>
+<h5><a href="https://www.pixabay.com">pixabay:images</a></h5>
+
+<h5><a href="https://fontawesome.com/">Font Awesome</a></h5>
+
+<h4>{% trans "And many many others" %}</h4>
+</div> -->

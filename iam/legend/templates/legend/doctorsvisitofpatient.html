@@ -1,0 +1,67 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style >
+html,body{
+direction:ltr;
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<body>
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+
+
+
+
+<div class="w3-twothird">
+<div class="  card text-black bg-light mb-3  " >
+  <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">This is a list of {{patient.name}} visits to you:</h1>
+<h4>Click a visit to see its details:</h4>
+  </div>
+  <div class="card-body " >
+    <div class="container overflow-auto" style="max-height:500px">
+      <ul>
+    {% for visit in visit_list %}
+     <li ><a   href="{% url 'legend:doctorvisitdetails' visit.pk  %}">{{visit.time}}-{{visit.Cheif_complaint}}</a></li>
+       <p></p>
+    {% empty %}
+
+        <li><h1 style ="font-family: 'Aref Ruqaa', serif;">No Visits to Show</h1></li>
+    {% endfor %}
+    </ul>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="card">
+      <div class="card-header" ><h3 style ="font-family: 'Aref Ruqaa', serif;">Some of {{patient.name}} information-to see only!</h3></div>
+      <div class="card-body " >
+      <a href="{% url 'legend:doctor_patientBP' patient.pk  %}" class="btn btn-outline-dark" >Blood Pressure</a>
+      <p></p>
+      <a href="{% url 'legend:doctor_patientinvestigations' patient.pk  %}" class="btn btn-outline-dark" >Investigations</a>
+      <p></p>
+      <a href="{% url 'legend:doctor_patientmedications' patient.pk  %}" class="btn btn-dark" >Medications</a>
+      <p></p>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+{% endblock %}

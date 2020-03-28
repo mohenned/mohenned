@@ -1,0 +1,186 @@
+{% extends 'legend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'en' %}
+<style >
+html,body{
+background-image: url("{% static 'images/road.jpeg' %}");
+min-height: 100%;
+background-position: center;
+background-size: cover;
+</style>
+<head>
+    <div class="header bg-info text-white " style="width:100%;padding:5px;margin:5px;">
+    <h2 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">Hello, {{user.patient.name}} </h2>
+    <h3 style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">These are your Blood pressure(s):</h3>
+  </div>
+</head>
+
+<body>
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="row">
+    <p></p>
+    <!-- Left Column -->
+    <div class="col-sm-6">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Added by you:</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:500px">
+            <table class="table">
+            <tbody>
+              {% for pressure in mypressure_list %}
+              <tr>
+                <td>{{pressure.time}}</td>
+                <td>{{pressure}} mmhg</td>
+                <td style="max-width: 150px;word-wrap: break-word;">{{pressure.pressure_comments}}</td>
+              </tr>
+              </tbody>
+
+            {% empty %}
+                <li>No Blood pressure .</li>
+            {% endfor %}
+            </table>
+        </div>
+        </div>
+        <div class="card-footer"><h2><a class="btn btn-dark" href="{% url 'legend:BP_create' %} " >Add BP</a></h2></div>
+
+        </div>
+        </div>
+
+
+
+
+    <br>
+
+<!-- right column -->
+    <div class="col-sm-6">
+
+      <div class="  card text-black bg-white mb-3  " style="max-width:100%;">
+        <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">Measured in a visit:</h1></div>
+        <div class="card-body " >
+          <div class="container overflow-auto" style="max-height:580px">
+            <table class="table">
+            <tbody>
+            {% for visit in user.patient.visit_set.all %}
+            {% for pressure in visit.pressure_set.all %}
+            <tr>
+            <td>{{pressure.time}}</td>
+            <td>{{pressure}} mmhg</td>
+            <td style="max-width: 150px;word-wrap: break-word;">{{pressure.pressure_comments}}</td>
+            {% endfor %}
+
+          </tr>
+          </tbody>
+          {% empty %}
+              <li>No Blood pressure measured at a visit to a doctor .</li>
+
+          {% endfor %}
+          </table>
+        </div>
+        </div>
+        </div>
+            </div>
+            </div>
+
+</body>
+
+        {% elif LANGUAGE_CODE == 'ar' %}
+        <style>
+        h1,h2,h3,h4,h5,h6,div,head ,p{direction: rtl;align-items:right;}
+        html,body{
+          background-image: url("{% static 'images/road.jpeg' %}");
+          background-repeat: no-repeat;
+          background-size: cover ;
+          min-height: 100%;}
+        </style>
+        <head>
+            <div class="header text-right bg-info text-white " style="width:100%;padding:5px;margin:5px;">
+            <h2 class="text-right" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">مرحبا ،{{user.patient.name}} شكو ماكو؟   </h2>
+            <h3 class="text-right" style ="font-family: 'Aref Ruqaa', serif;margin-left:5px;">جداول ضغط الدم:</h3>
+          </div>
+        </head>
+
+        <body>
+
+        <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+          <!-- The Grid -->
+          <div class="row">
+            <p></p>
+            <!-- Left Column -->
+            <div class="col-sm-6">
+
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">تمت اضافتها من قبلك</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:500px">
+                    <table class="table">
+                    <tbody>
+                      {% for pressure in mypressure_list %}
+                      <tr>
+                        <td>{{pressure.time}}</td>
+                        <td>{{pressure}} mmhg</td>
+                        <td style="max-width: 150px;word-wrap: break-word;">{{pressure.pressure_comments}}</td>
+                      </tr>
+                      </tbody>
+
+                    {% empty %}
+                        <li>لآيوجد قياس لإظهاره</li>
+                    {% endfor %}
+                    </table>
+                </div>
+                </div>
+                <div class="card-footer"><h2><a class="btn btn-dark" href="{% url 'legend:BP_create' %} " >أضافة </a></h2></div>
+
+                </div>
+                </div>
+
+
+
+
+            <br>
+
+        <!-- right column -->
+            <div class="col-sm-6">
+
+              <div class="  card text-right text-black bg-white mb-3  " style="max-width:100%;">
+                <div class="card-header" ><h1 style ="font-family: 'Aref Ruqaa', serif;">تم أخذها في زيارة لطبيب:</h1></div>
+                <div class="card-body " >
+                  <div class="container overflow-auto" style="max-height:580px">
+                    <table class="table">
+                    <tbody>
+                    {% for visit in user.patient.visit_set.all %}
+                    {% for pressure in visit.pressure_set.all %}
+                    <tr>
+                    <td>{{pressure.time}}</td>
+                    <td>{{pressure}} mmhg</td>
+                    <td style="max-width: 150px;word-wrap: break-word;">{{pressure.pressure_comments}}</td>
+                    {% endfor %}
+
+                  </tr>
+                  </tbody>
+                  {% empty %}
+                      <li>لايوجد ضغط دم مقاس في زيارة</li>
+
+                  {% endfor %}
+                  </table>
+                </div>
+                </div>
+                </div>
+                    </div>
+                    </div>
+
+        </body>
+{% endif %}
+{% endblock %}

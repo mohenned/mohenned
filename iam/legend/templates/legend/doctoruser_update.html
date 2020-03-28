@@ -1,0 +1,31 @@
+{% extends "legend/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load bootstrap %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+<style >
+  html,body{
+    background-image: url("{% static 'images/road.jpeg' %}");
+
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+</style>
+<body>
+<p></p>
+<div style="width:90%" class="card text-white bg-dark mb-3 " >
+  <div class="card-header  "> <h1 style ="font-family: 'Aref Ruqaa', serif;">Update,if you like:</h1></div>
+        <div class="card-body">
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+            {{ form|bootstrap }}
+          <input type="submit" class="btn btn-primary" name="" value="Update">
+        </form>
+  </div>
+  </div>
+  </body>
+
+{% endblock %}
